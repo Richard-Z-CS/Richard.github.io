@@ -7,90 +7,157 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* Typewriter cursor */
+    #typewriter::after { content: '|'; animation: blink 0.7s infinite; }
+    @keyframes blink { 0%,50%,100%{opacity:1;} 25%,75%{opacity:0;} }
+
+    .landing { font-size:28px; font-weight:600; margin-bottom:20px; color:var(--accent,#0ea5a4); }
+
+    /* Sidebar nav */
+    .sidebar-nav { 
+      position:fixed; top:50%; left:10px; transform:translateY(-50%); 
+      display:flex; flex-direction:column; gap:16px; 
+    }
+    .nav-item { 
+      color:#555; font-size:22px; text-decoration:none; transition: color 0.3s ease, transform 0.2s ease; 
+    }
+    .nav-item.active { color:#0ea5a4; transform: scale(1.2); }
+    .nav-item:hover { color:#0ea5a4; transform: scale(1.1); }
+
+    /* Back to top */
+    .back-to-top { 
+      position:fixed; bottom:20px; right:20px; font-size:26px; 
+      background:#0ea5a4; color:#fff; padding:10px; border-radius:50%; display:none; text-decoration:none; 
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .back-to-top:hover { background:#0b7c7c; transform: scale(1.1); }
+
+    .contact a i { margin-right:6px; }
+
+    /* Sections spacing */
+    .section { padding:100px 0; border-bottom:1px solid #ddd; }
+
+    /* Skill bars */
+    .skill-bar { margin-bottom:18px; }
+    .skill-bar span { display:block; margin-bottom:6px; font-weight:500; }
+    .skill-bar .bar { background:#e0e0e0; border-radius:8px; overflow:hidden; height:18px; }
+    .skill-bar .bar div { background:var(--accent,#0ea5a4); height:100%; width:0; transition: width 1.2s ease-in-out; }
+
+    /* Portfolio */
+    .portfolio-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:24px; }
+    .portfolio-item { border:1px solid #f1f1f1; border-radius:8px; overflow:hidden; background:#fff; text-align:center; padding:10px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .portfolio-item:hover { transform: translateY(-5px); box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
+    .portfolio-item img { width:100%; height:auto; display:block; margin-bottom:8px; border-radius:6px; }
+    .portfolio-item p { margin:0; font-size:14px; color:var(--muted,#555); }
+
+  </style>
 </head>
 <body>
+
+  <!-- Sidebar navigation -->
+  <div class="sidebar-nav">
+    <a href="#home" class="nav-item active"><i class="fas fa-home"></i></a>
+    <a href="#about" class="nav-item"><i class="fas fa-user"></i></a>
+    <a href="#education" class="nav-item"><i class="fas fa-graduation-cap"></i></a>
+    <a href="#skills" class="nav-item"><i class="fas fa-chart-bar"></i></a>
+    <a href="#portfolio" class="nav-item"><i class="fas fa-folder-open"></i></a>
+  </div>
+
+  <!-- Back to top -->
+  <a href="#home" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
   <div class="wrap">
     <main class="card">
-      <header>
-        <div class="avatar">RD</div>
+      <header id="home">
+        <div class="avatar">RZ</div>
         <div>
-          <h1>Richard Dela Cruz</h1>
+          <h1>Richard Zhu</h1>
+          <div class="landing">I am a <span id="typewriter"></span></div>
           <div class="title">Software Developer — Full-stack | Open to remote</div>
           <div class="contact">
             <div>📍 Edmonton, AB</div>
-            <div>✉️ <a href="mailto:richard@example.com">richard@example.com</a></div>
-            <div>💼 <a href="https://github.com/Richard-Z-CS" target="_blank">github.com/Richard-Z-CS</a></div>
-            <div>🔗 <a href="#" id="resume-pdf">Download PDF</a></div>
+            <div>
+              <a href="https://www.linkedin.com/in/richard-zhu-70a489355" target="_blank" style="text-decoration:none;color:inherit;">
+                <i class="fab fa-linkedin"></i> linkedin.com/in/richard-zhu-70a489355
+              </a>
+            </div>
+            <div>
+              <a href="https://github.com/Richard-Z-CS" target="_blank" style="text-decoration:none;color:inherit;">
+                <i class="fab fa-github"></i> github.com/Richard-Z-CS
+              </a>
+            </div>
+            <div>
+              <a href="https://www.instagram.com/gu.est.01" target="_blank" style="text-decoration:none;color:inherit;">
+                <i class="fab fa-instagram"></i> instagram.com/gu.est.01
+              </a>
+            </div>
           </div>
         </div>
       </header>
 
-      <section class="section">
+      <section id="about" class="section">
         <h3>About</h3>
-        <p style="margin:0;color:var(--muted)">Practical full-stack developer with experience building resilient web apps. Comfortable with JavaScript, Python, and infrastructure work. Passionate about readable code and well-designed UX.</p>
+        <p style="margin:0;color:var(--muted)">Student with full-stack development experience. Built projects for the Stanley A. Milner Library and MacEwan's School of Continuing Education.</p>
       </section>
 
-      <section class="section">
-        <h3>Experience</h3>
-        <div class="experience">
-          <div class="job">
-            <div class="row">
-              <div>
-                <div class="company">Primoris Canada — Application Developer</div>
-                <div style="color:var(--muted);font-size:13px">Edmonton, AB</div>
-              </div>
-              <div class="when">2024 — Present</div>
-            </div>
-            <p style="margin-top:8px;color:var(--muted)">Worked on internal tools supporting pipeline construction and maintenance. Implemented features, fixed bugs, and owned deployments.</p>
-          </div>
-
-          <div class="job">
-            <div class="row">
-              <div>
-                <div class="company">Company B — Junior Developer</div>
-                <div style="color:var(--muted);font-size:13px">Remote</div>
-              </div>
-              <div class="when">2021 — 2024</div>
-            </div>
-            <p style="margin-top:8px;color:var(--muted)">Built customer-facing features, wrote tests, and improved CI pipelines.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <h3>Projects</h3>
-        <div style="display:grid;gap:8px">
-          <div style="padding:10px;border-radius:8px;background:#fff;border:1px solid #f1f5f9">
-            <strong>Resume Site</strong> — This very static site, hosted on GitHub Pages. HTML / CSS.
-          </div>
-          <div style="padding:10px;border-radius:8px;background:#fff;border:1px solid #f1f5f9">
-            <strong>Tooling</strong> — Small CLI utilities to help with logs and deployments.
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
+      <section id="education" class="section">
         <h3>Education</h3>
-        <div style="color:var(--muted)">Diploma / BSc in Computer Science — University Name — 2018</div>
+        <div style="color:var(--muted)">BSc in Computer Science — MacEwan University — 2025</div>
       </section>
+
+      <section id="skills" class="section">
+        <h3>Skills & Proficiency</h3>
+        <div class="skill-bar">
+          <span>JavaScript</span>
+          <div class="bar"><div style="width:90%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span>Python</span>
+          <div class="bar"><div style="width:85%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span>C#</span>
+          <div class="bar"><div style="width:75%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span>Java</span>
+          <div class="bar"><div style="width:70%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <span>SQL</span>
+          <div class="bar"><div style="width:80%"></div></div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="section">
+        <h3>Portfolio</h3>
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <a href="https://project1.example.com" target="_blank">
+              <img src="project1.png" alt="Project 1 Screenshot">
+              <p>Edmonton Public Library — Interactive Wall Game</p>
+            </a>
+          </div>
+          <div class="portfolio-item">
+            <a href="https://project2.example.com" target="_blank">
+              <img src="project2.png" alt="Project 2 Screenshot">
+              <p>Project 2 — Description here</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <aside class="sidebar">
       <div class="card">
-        <h3>Skills</h3>
-        <ul class="skills">
-          <li>JavaScript</li>
-          <li>React</li>
-          <li>Node.js</li>
-          <li>Python</li>
-          <li>Docker</li>
-          <li>AWS</li>
-        </ul>
-
-        <div class="section" style="margin-top:18px">
-          <h3>Extras</h3>
-          <p style="margin:0;color:var(--muted);font-size:14px">Open to contract or full-time. Available for interviews via video.</p>
-        </div>
+        <h3>Extras</h3>
+        <p style="margin:0;color:var(--muted);font-size:14px">Open to contract or full-time.</p>
 
         <div class="section print-hide">
           <h3>Print</h3>
@@ -101,9 +168,64 @@
   </div>
 
   <script>
-    document.getElementById('resume-pdf').addEventListener('click', function(e){
-      e.preventDefault();
-      window.print();
+    // Typewriter animation
+    const words = ["Software Developer", "Student"];
+    let i = 0, j = 0;
+    let currentWord = '';
+    let isDeleting = false;
+
+    function type() {
+      const element = document.getElementById('typewriter');
+      if (!isDeleting) {
+        currentWord = words[i].substring(0, j+1);
+        element.textContent = currentWord;
+        j++;
+        if (currentWord === words[i]) {
+          isDeleting = true;
+          setTimeout(type, 1000);
+          return;
+        }
+      } else {
+        currentWord = words[i].substring(0, j-1);
+        element.textContent = currentWord;
+        j--;
+        if (currentWord === '') {
+          isDeleting = false;
+          i = (i+1) % words.length;
+        }
+      }
+      setTimeout(type, isDeleting ? 80 : 150);
+    }
+    type();
+
+    // ScrollSpy for sidebar nav
+    const sections = document.querySelectorAll('section, header');
+    const navItems = document.querySelectorAll('.nav-item');
+
+    window.addEventListener('scroll', () => {
+      let current = 'home';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 80;
+        if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+      });
+
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === '#' + current) item.classList.add('active');
+      });
+
+      // Back to top visibility
+      const backToTop = document.querySelector('.back-to-top');
+      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+
+      // Animate skill bars when in view
+      document.querySelectorAll('.skill-bar div').forEach(bar => {
+        const parent = bar.parentElement.parentElement;
+        const rect = parent.getBoundingClientRect();
+        if(rect.top < window.innerHeight) {
+          bar.style.width = bar.style.width.replace('0','') || bar.getAttribute('style').replace('width:0','');
+        }
+      });
     });
   </script>
 </body>
